@@ -13,6 +13,7 @@ print("Температура:", data['main']['temp'])
 print("Минимальная температура:", data['main']['temp_min'])
 print("Максимальная температура", data['main']['temp_max'])
 print("Скорость ветра", data['wind']['speed'])
+print("Видимость", data['visibility'])
 
 
 res = requests.get("http://api.openweathermap.org/data/2.5/forecast",
@@ -23,5 +24,6 @@ for i in data['list']:
     print("Дата <", i['dt_txt'], "> \r\nТемпература <",
 '{0:+3.0f}'.format(i['main']['temp']), "> \r\nПогодные условия <",
 i['weather'][0]['description'], "> \r\nСкорость ветра<",
-i['wind']['speed'],">")
+i['wind']['speed'],"> \r\nВидимость<",
+i['visibility'],">")
 print("____________________________")
